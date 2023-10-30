@@ -1,4 +1,4 @@
-# Welcome to Crafcrawl 🍻
+# Welcome to Craftcrawl 🍻
 
 ## Development
 
