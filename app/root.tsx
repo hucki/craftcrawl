@@ -1,5 +1,4 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -9,10 +8,21 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
-];
+import stylesheet from "~/tailwind.css";
 
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
+  {
+    rel: "stylesheet",
+    href: "https://unpkg.com/leaflet@1.8.0/dist/leaflet.css",
+  },
+];
+export const meta: MetaFunction = () => {
+  return [
+    { title: "craftcrawl - pubs galore" },
+    { name: "description", content: "Welcome to Craftcrawl!" },
+  ];
+};
 export default function App() {
   return (
     <html lang="en">
